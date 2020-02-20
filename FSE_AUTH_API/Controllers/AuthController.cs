@@ -26,10 +26,10 @@ namespace FSE_AUTH_API.Controllers
 
         [HttpPost]
         [Route("GetToken")]
-        public IActionResult GetToken(string username, string password)
+        public IActionResult GetToken([FromBody]UserCredentials userParam)
         {
             //IActionResult response = Unauthorized();
-            var user = AuthenticateUser(username, password);
+            var user = AuthenticateUser(userParam.Username, userParam.Password);
 
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
