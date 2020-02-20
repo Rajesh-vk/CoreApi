@@ -26,10 +26,10 @@ namespace FSE_AUTH_API.Controllers
 
         [HttpPost]
         [Route("GetToken")]
-        public IActionResult GetToken([FromBody] UserCredentials login)
+        public IActionResult GetToken(string username, string password)
         {
             //IActionResult response = Unauthorized();
-            var user = AuthenticateUser(login);
+            var user = AuthenticateUser(username, password);
 
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
@@ -69,9 +69,9 @@ namespace FSE_AUTH_API.Controllers
             new UserCredentials { Username = "test", Password = "test" }
         };
 
-        private UserCredentials AuthenticateUser(UserCredentials login)
+        private UserCredentials AuthenticateUser(string username, string password)
         {
-            var user = _users.SingleOrDefault(x => x.Username == login.Username && x.Password == login.Password);
+            var user = _users.SingleOrDefault(x => x.Username == username && x.Password == password);
             if (user == null)
                 return null;
             return user;
