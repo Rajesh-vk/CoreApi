@@ -26,7 +26,7 @@ namespace FSE_AUTH_API.Controllers
 
         [HttpPost]
         [Route("GetToken")]
-        public IActionResult GetToken([FromBody]UserCredentials userParam)
+        public IActionResult GetToken([FromBody]User userParam)
         {
             //IActionResult response = Unauthorized();
             var user = AuthenticateUser(userParam.Username, userParam.Password);
@@ -45,7 +45,7 @@ namespace FSE_AUTH_API.Controllers
             return Ok(user);
         }
 
-        private string GenerateJSONWebToken(UserCredentials userInfo)
+        private string GenerateJSONWebToken(User userInfo)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -64,17 +64,17 @@ namespace FSE_AUTH_API.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        private List<UserCredentials> _users = new List<UserCredentials>
+        private List<User> _users = new List<User>
         {
-            new UserCredentials { Username = "test", Password = "test" }
+            new User { Username = "test", Password = "test" }
         };
 
-        private UserCredentials AuthenticateUser(string username, string password)
+        private User AuthenticateUser(string username, string password)
         {
-            var user = _users.SingleOrDefault(x => x.Username == username && x.Password == password);
+            var user = _users.FirstOrDefault(x => x.Username == username && x.Password == password);
             if (user == null)
                 return null;
-            return user;
+            return _users.FirstOrDefault();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FSE_AUTH_API.Model
 {
-    public class UserCredentials
+    public class User
     {
         public string Username { get; set; }
         public string Password { get; set; }
