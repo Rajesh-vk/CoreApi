@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace FSE_AUTH_API.Model
+namespace FSE_API_MODEL
 {
     public class User
     {
