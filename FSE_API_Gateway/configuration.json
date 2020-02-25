@@ -6,10 +6,10 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1688
+          "Port": 49170
         }
       ],
-      "UpstreamPathTemplate": "/api/event/{everything}",
+      "UpstreamPathTemplate": "/events/{everything}",
       "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
     },
     {
@@ -21,7 +21,7 @@
           "Port": 62517
         }
       ],
-      "UpstreamPathTemplate": "/api/API2/{everything}",
+      "UpstreamPathTemplate": "/users{everything}",
       "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
     }
 
