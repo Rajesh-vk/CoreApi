@@ -6,9 +6,9 @@ using System.Text;
 
 namespace FSE_DataAccess.Implementation
 {
-    public class SampleRepo : CosmosRepositoryBase<Family>, ISampleRepo
+    public class EventRepo : CosmosRepositoryBase<EventDetails>, IEventRepo
     {
-        public SampleRepo()
+        public EventRepo()
         {
         }        
     }

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FSE_API_MODEL\FSE_API_MODEL.csproj" />
+    <ProjectReference Include="..\FSE_DataAccess\FSE_DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

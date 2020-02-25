@@ -29,7 +29,7 @@ namespace FSE_API_1.Controllers
         {
             try
             {
-                ISampleRepo sampleRepo = new SampleRepo();
+                IEventRepo sampleRepo = new EventRepo();
                 return sampleRepo.GetById("Andersen.1");
             }
             catch (Exception ex)
@@ -70,7 +70,7 @@ namespace FSE_API_1.Controllers
 
             try
             {
-                ISampleRepo sampleRepo = new SampleRepo();
+                IEventRepo sampleRepo = new EventRepo();
                 var andersenFamilyResponse = sampleRepo.GetById(andersenFamily.Id);
                 if (andersenFamilyResponse != null)
                     sampleRepo.Insert(andersenFamily);

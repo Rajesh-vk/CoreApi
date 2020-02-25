@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FSE_DataAccess.Interfaces
 {
-    public interface ISampleRepo : ICosmosRepositoryBase<Family>
+    public interface IEventRepo : ICosmosRepositoryBase<EventDetails>
     {
     }
 }
