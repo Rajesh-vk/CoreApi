@@ -47,6 +47,7 @@ namespace EventServices
                     });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<IEvent, Event>();
+            services.AddScoped<IEventRepo, EventRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

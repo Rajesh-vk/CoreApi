@@ -25,12 +25,13 @@ namespace FSE_API_1.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Family> Get(int id)
+        public ActionResult<string> Get(int id)
         {
             try
             {
-                IEventRepo sampleRepo = new EventRepo();
-                return sampleRepo.GetById("Andersen.1");
+                //IEventRepo sampleRepo = new EventRepo();
+                //return sampleRepo.GetById("1");
+                return "value";
             }
             catch (Exception ex)
             {
@@ -42,43 +43,43 @@ namespace FSE_API_1.Controllers
         [HttpPost]
         public void Post()
         {
-            Family andersenFamily = new Family
-            {
-                Id = "Andersen.1",
-                LastName = "Andersen",
-                Parents = new Parent[]
-           {
-                new Parent { FirstName = "Thomas" },
-                new Parent { FirstName = "Mary Kay" }
-           },
-                Children = new Child[]
-           {
-            new Child
-            {
-                FirstName = "Henriette Thaulow",
-                Gender = "female",
-                Grade = 5,
-                Pets = new Pet[]
-                {
-                    new Pet { GivenName = "Fluffy" }
-                }
-            }
-           },
-                Address = new Address { State = "WA", County = "King", City = "Seattle" },
-                IsRegistered = false
-            };
+            //Family andersenFamily = new Family
+           // {
+           //     Id = "Andersen.1",
+           //     LastName = "Andersen",
+           //     Parents = new Parent[]
+           //{
+           //     new Parent { FirstName = "Thomas" },
+           //     new Parent { FirstName = "Mary Kay" }
+           //},
+           //     Children = new Child[]
+           //{
+           // new Child
+           // {
+           //     FirstName = "Henriette Thaulow",
+           //     Gender = "female",
+           //     Grade = 5,
+           //     Pets = new Pet[]
+           //     {
+           //         new Pet { GivenName = "Fluffy" }
+           //     }
+           // }
+           //},
+           //     Address = new Address { State = "WA", County = "King", City = "Seattle" },
+           //     IsRegistered = false
+           // };
 
-            try
-            {
-                IEventRepo sampleRepo = new EventRepo();
-                var andersenFamilyResponse = sampleRepo.GetById(andersenFamily.Id);
-                if (andersenFamilyResponse != null)
-                    sampleRepo.Insert(andersenFamily);
-            }
-            catch (Exception ex)
-            {
+           // try
+           // {
+           //     IEventRepo sampleRepo = new EventRepo();
+           //     var andersenFamilyResponse = sampleRepo.GetById(andersenFamily.Id);
+           //     if (andersenFamilyResponse != null)
+           //         sampleRepo.Insert(andersenFamily);
+           // }
+           // catch (Exception ex)
+           // {
 
-            }
+           // }
         }
 
         // PUT api/values/5

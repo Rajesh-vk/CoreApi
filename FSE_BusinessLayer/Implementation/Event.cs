@@ -29,7 +29,9 @@ namespace FSE_BusinessLayer.Implementation
 
         public void InsertEvent(EventDetails eventDetails)
         {
-             _eventRepo.Insert(eventDetails);
+            var _event = _eventRepo.GetById(eventDetails.Id);
+            if (_event == null)
+                _eventRepo.Insert(eventDetails);
 
         }
     }
