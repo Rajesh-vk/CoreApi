@@ -6,7 +6,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 49170
+          "Port": 1688
         }
       ],
       "UpstreamPathTemplate": "/events/{everything}",
