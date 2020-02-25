@@ -34,5 +34,17 @@ namespace FSE_BusinessLayer.Implementation
                 _eventRepo.Insert(eventDetails);
 
         }
+
+        public void UpdateEvent(string id, EventDetails eventDetails)
+        {
+            _eventRepo.Update(id, eventDetails);
+
+        }
+
+        public void DeleteEvent(string id)
+        {
+                _eventRepo.Delete(id);
+
+        }
     }
 }

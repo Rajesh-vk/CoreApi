@@ -63,9 +63,9 @@ namespace FSE_DataAccess.Implementation
             throw new NotImplementedException();
         }
 
-        void ICosmosRepositoryBase<TEntity>.Update(TEntity obj)
+        void ICosmosRepositoryBase<TEntity>.Update(string id,TEntity obj)
         {
-            throw new NotImplementedException();
+            var document1 = this.cosmosClient.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseId, docCollectionId, id), obj).Result;
         }
     }
 }

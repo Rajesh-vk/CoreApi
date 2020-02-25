@@ -9,7 +9,7 @@ namespace FSE_DataAccess.Interfaces
         IEnumerable<TEntity> GetAll();
         TEntity GetById(string id);
         void Insert(TEntity obj);
-        void Update(TEntity obj);
+        void Update(string id, TEntity obj);
         void Delete(string id);
         void Save();
     }

@@ -9,5 +9,8 @@ namespace FSE_BusinessLayer.Inferface
     {
         IEnumerable<EventDetails> GetAll();
         EventDetails GetById(string id);
+        void InsertEvent(EventDetails eventDetails);
+        void UpdateEvent(string id, EventDetails eventDetails);
+        void DeleteEvent(string id);
     }
 }

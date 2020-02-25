@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FSE_API_MODEL;
 using FSE_BusinessLayer.Inferface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,34 +24,37 @@ namespace EventServices.Controllers
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<EventDetails>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _eventBL.GetAll().ToList();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<EventDetails> Get(string id)
         {
-            return "value";
+            return _eventBL.GetById(id);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] EventDetails eventDetails)
         {
+            _eventBL.InsertEvent(eventDetails);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(string id, [FromBody] EventDetails eventDetails)
         {
+            _eventBL.UpdateEvent(id, eventDetails);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
+            _eventBL.DeleteEvent(id);
         }
     }
 }
