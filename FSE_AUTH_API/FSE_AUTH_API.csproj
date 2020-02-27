@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FSE_API_MODEL\FSE_API_MODEL.csproj" />
+    <ProjectReference Include="..\FSE_BusinessLayer\FSE_BusinessLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using FSE_API_MODEL;
+using FSE_BusinessLayer.Inferface;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -15,9 +16,12 @@ namespace FSE_AUTH_API.UserServices
     {
         private IConfiguration _config;
 
-        public UserService(IConfiguration config)
+        private IUserBL _userBL;
+
+        public UserService(IConfiguration config, IUserBL userBL)
         {
             _config = config;
+            _userBL = userBL;
         }
 
         public string GenerateJSONWebToken(User userInfo)
@@ -41,15 +45,22 @@ namespace FSE_AUTH_API.UserServices
 
         private List<User> _users = new List<User>
         {
-            new User { Username = "test", Password = "test" }
+            new User { Username = "admin", Password = "admin", UserRole=1 }
         };
 
         public User AuthenticateUser(string username, string password)
         {
             var user = _users.FirstOrDefault(x => x.Username == username && x.Password == password);
             if (user == null)
-                return null;
-            return _users.FirstOrDefault();
+            {
+                var DbUser = _userBL.GetAll().FirstOrDefault(x => x.Username == username && x.Password == password);
+                if (DbUser == null)
+                    return null;
+                else
+                    user = new User(DbUser);
+            }
+
+            return user;
         }
     }
 }
