@@ -24,8 +24,9 @@ namespace FSE_DataAccess.Implementation
 
         private string docCollectionId = "MyFirstCosmosDocCollection";
 
-        public CosmosRepositoryBase()
+        public CosmosRepositoryBase(string collectionId)
         {
+            this.docCollectionId = collectionId;
             this.cosmosClient = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
             this.database = new Database() { Id = databaseId };
             this.database = this.cosmosClient.CreateDatabaseIfNotExistsAsync(database).Result;
