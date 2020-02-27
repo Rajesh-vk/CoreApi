@@ -51,7 +51,7 @@ namespace EventServices.Controllers
         }
 
         // DELETE api/values/5
-        [HttpPost("{id}")]
+        [HttpDelete("{id}")]
         public void Delete(string id)
         {
             _eventBL.DeleteEvent(id);
