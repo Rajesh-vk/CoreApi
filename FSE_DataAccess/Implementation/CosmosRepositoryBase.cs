@@ -35,7 +35,7 @@ namespace FSE_DataAccess.Implementation
 
         void ICosmosRepositoryBase<TEntity>.Delete(string id)
         {
-            var response = this.cosmosClient.DeleteDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseId, docCollectionId)).Result;
+            var response = this.cosmosClient.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseId, docCollectionId, id)).Result;
         }
 
         IEnumerable<TEntity> ICosmosRepositoryBase<TEntity>.GetAll()

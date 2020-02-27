@@ -14,10 +14,10 @@ namespace FSE_API_MODEL
         public string baseLocation { get; set; }
         public string beneficiaryName { get; set; }
         public string venueAddress { get; set; }
-        public string totalNoVolunteers { get; set; }
-        public string totalVolunteHours { get; set; }
-        public string totalTravelHours { get; set; }
-        public string livesImpacted { get; set; }
+        public int totalNoVolunteers { get; set; }
+        public int totalVolunteHours { get; set; }
+        public int totalTravelHours { get; set; }
+        public int livesImpacted { get; set; }
 
 
         public override string ToString()
