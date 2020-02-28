@@ -12,6 +12,8 @@ namespace FSE_API_MODEL
         public string Username { get; set; }
         public string Password { get; set; }
 
+        public string EmailId { get; set; }
+
         public int UserRoleId { get; set; }
 
         public override string ToString()
