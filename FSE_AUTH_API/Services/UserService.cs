@@ -45,7 +45,7 @@ namespace FSE_AUTH_API.UserServices
 
         private List<User> _users = new List<User>
         {
-            new User { Username = "admin", Password = "admin", UserRole=1 }
+            new User { Username = "admin", Password = "admin", UserRoleId=3 }
         };
 
         public User AuthenticateUser(string username, string password)

@@ -12,13 +12,13 @@ namespace FSE_API_MODEL
         {
             Username = userDetail.Username;
             Password = userDetail.Password;
-            UserRole = userDetail.UserRoleId;
+            UserRoleId = userDetail.UserRoleId;
         }
         public string Username { get; set; }
         public string Password { get; set; }
 
         public string Token { get; set; }
 
-        public int UserRole { get; set; }
+        public int UserRoleId { get; set; }
     }
 }
