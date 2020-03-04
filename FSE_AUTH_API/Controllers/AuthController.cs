@@ -39,6 +39,13 @@ namespace FSE_AUTH_API.Controllers
             return Ok(user);
         }
 
+        [HttpPost]
+        [Route("register")]
+        public void Post([FromBody] UserDetails userDetails)
+        {
+            _UserService.RegisterUser(userDetails);
+        }
+
 
     }
 }

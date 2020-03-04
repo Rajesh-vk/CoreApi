@@ -10,5 +10,7 @@ namespace FSE_AUTH_API.UserServices
     {
         string GenerateJSONWebToken(User userInfo);
         User AuthenticateUser(string username, string password);
+
+        void RegisterUser(UserDetails userDetails);
     }
 }

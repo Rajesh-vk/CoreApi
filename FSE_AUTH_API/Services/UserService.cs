@@ -62,5 +62,11 @@ namespace FSE_AUTH_API.UserServices
 
             return user;
         }
+
+        public void RegisterUser( UserDetails userDetails)
+        {
+
+            _userBL.InsertUser(userDetails);
+        }
     }
 }
