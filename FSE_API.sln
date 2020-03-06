@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventServices", "EventServi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSE_BusinessLayer", "FSE_BusinessLayer\FSE_BusinessLayer.csproj", "{E667ED23-EAD1-4251-B6D6-8CDEFDB99502}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserServices", "UserServices\UserServices.csproj", "{CA7420DD-EC9E-4CD2-BFD1-EB7D6D448FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserServices", "UserServices\UserServices.csproj", "{CA7420DD-EC9E-4CD2-BFD1-EB7D6D448FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject", "XUnitTestProject1\XUnitTestProject.csproj", "{14AAAAB5-858D-4274-A06F-A0769165EAD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{CA7420DD-EC9E-4CD2-BFD1-EB7D6D448FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA7420DD-EC9E-4CD2-BFD1-EB7D6D448FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA7420DD-EC9E-4CD2-BFD1-EB7D6D448FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14AAAAB5-858D-4274-A06F-A0769165EAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14AAAAB5-858D-4274-A06F-A0769165EAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14AAAAB5-858D-4274-A06F-A0769165EAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14AAAAB5-858D-4274-A06F-A0769165EAD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
