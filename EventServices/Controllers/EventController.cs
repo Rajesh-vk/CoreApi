@@ -28,35 +28,58 @@ namespace EventServices.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<EventDetails>> Get()
         {
-            return _eventBL.GetAll().ToList();
+            return Ok(_eventBL.GetAll().ToList());
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<EventDetails> Get(string id)
         {
-            return _eventBL.GetById(id);
+            var item = _eventBL.GetById(id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return Ok(item);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] EventDetails eventDetails)
+        public ActionResult Post([FromBody] EventDetails eventDetails)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             _eventBL.InsertEvent(eventDetails);
+
+            return CreatedAtAction("Get", new { id = eventDetails.Id }, eventDetails);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(string id, [FromBody] EventDetails eventDetails)
+        public ActionResult Put(string id, [FromBody] EventDetails eventDetails)
         {
             _eventBL.UpdateEvent(id, eventDetails);
+
+            return Ok();
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public ActionResult Delete(string id)
         {
+
+            var existingItem = _eventBL.GetById(id);
+
+            if (existingItem == null)
+            {
+                return NotFound();
+            }
             _eventBL.DeleteEvent(id);
+            return Ok();
         }
     }
 }
