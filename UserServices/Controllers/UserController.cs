@@ -25,22 +25,36 @@ namespace UserServices.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<UserDetails>> Get()
         {
-            return _userBL.GetAll().ToList();
+            return Ok(_userBL.GetAll().ToList());
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<UserDetails> Get(string id)
         {
-            return _userBL.GetById(id);
+            var item = _userBL.GetById(id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return Ok(item);
+          
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] UserDetails userDetails )
+        public ActionResult Post([FromBody] UserDetails userDetails )
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             _userBL.InsertUser(userDetails);
+
+            return CreatedAtAction("Get", new { id = userDetails.Id }, userDetails);
+           
         }
 
         // PUT api/values/5
@@ -52,9 +66,17 @@ namespace UserServices.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public ActionResult Delete(string id)
         {
+            var existingItem = _userBL.GetById(id);
+
+            if (existingItem == null)
+            {
+                return NotFound();
+            }
             _userBL.DeleteUser(id);
+
+            return Ok();
         }
     }
 }
